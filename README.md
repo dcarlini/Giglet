@@ -91,11 +91,3 @@ mkdocs serve
 | End-to-End | Cypress |
 
 ---
-
-## 📬 Contact
-- 📧 Email: your.email@example.com
-- 💼 LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-
----
-
-🚀 Built to showcase **lead engineer skills** and launch **a real side business**.
