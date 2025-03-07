@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+
+  user-service:
+    environment:
+      - SUPABASE_URL=your-supabase-url
+      - SUPABASE_KEY=your-supabase-key

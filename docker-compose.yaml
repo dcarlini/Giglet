@@ -1,0 +1,71 @@
+# WARNING: This file is auto-managed by setup scripts. Manual changes may be overwritten.
+# To modify secrets, use docker-compose.override.yaml or inject via CI/CD.
+
+version: '3.9'
+services:
+
+  job-service:
+    build:
+      context: ./services/job-service
+    ports:
+      - "3000:3000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+      - ENABLE_OTEL=false
+      - ENABLE_REDIS=false
+      - ENABLE_NOTIFICATION=false
+      - ENABLE_PAYMENT=false
+      - ENABLE_OTEL=true
+      - ENABLE_REDIS=true
+      - ENABLE_NOTIFICATION=true
+      - ENABLE_PAYMENT=true
+    depends_on:
+      - redis
+      - otel-collector
+
+  user-service:
+    build:
+      context: ./services/user-service
+    ports:
+      - "9090:9090"
+
+  payment-service:
+    build:
+      context: ./services/payment-service
+    ports:
+      - "3002:3002"
+
+  notification-service:
+    build:
+      context: ./services/notification-service
+    ports:
+      - "3003:3003"
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib
+    volumes:
+      - ./monitoring/otel-collector-config.yml:/etc/otelcol-contrib/config.yaml
+    ports:
+      - "4317:4317"
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - ./monitoring/grafana/provisioning:/etc/grafana/provisioning
+    ports:
+      - "3000:3000"
