@@ -22,7 +22,6 @@ Welcome to **Giglet** — a fully cloud-native, microservices-based marketplace 
 | **Frontend (Mobile)** | React Native + Typescript + React Query |
 | **Backend APIs** | NestJS (GraphQL) + Spring Boot (gRPC) + Express (REST) |
 | **Data & Storage** | Supabase (PostgreSQL + Auth) + Redis (Caching) |
-| **Payments** | Stripe Connect |
 | **Infrastructure** | Docker Compose (local) + Kubernetes (MicroK8s/AKS) + Terraform |
 | **CI/CD** | GitHub Actions (Click to Deploy) |
 | **Observability** | OpenTelemetry + Prometheus + Grafana |
@@ -42,7 +41,7 @@ docker-compose up
 
 ### 3️⃣ Run Mobile App
 ```bash
-cd frontend
+cd frontend-mobile
 npm install
 npm run ios   # for iOS
 npm run android  # for Android
