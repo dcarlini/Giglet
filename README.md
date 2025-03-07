@@ -5,12 +5,12 @@ Welcome to **Giglet** — a fully cloud-native, microservices-based marketplace 
 ---
 
 ## 🌟 Overview
-**Giglet** is designed as both a **portfolio project**, showcasing:
+**Giglet** is designed as a **portfolio project**, showcasing:
+- Mobile-first UI (React Native + Typescript)
 - Polyglot microservices (Java + Node.js)
 - Cloud-native deployment (Azure AKS + Terraform + Helm)
 - End-to-end observability (OpenTelemetry + Prometheus + Grafana)
 - Full test coverage (Unit, Integration, E2E)
-- Mobile-first UI (React Native + Typescript)
 - Automated CI/CD (GitHub Actions)
 - Production-ready documentation (mkdocs)
 
@@ -20,7 +20,7 @@ Welcome to **Giglet** — a fully cloud-native, microservices-based marketplace 
 | Layer | Tech Used |
 |---|---|
 | **Frontend (Mobile)** | React Native + Typescript + React Query |
-| **Backend APIs** | NestJS (GraphQL) + Spring Boot (gRPC) + Express (REST) |
+| **Backend Microservices** | React - NestJS (GraphQL) + JavaSpring Boot (gRPC) + Express (REST) |
 | **Data & Storage** | Supabase (PostgreSQL + Auth) + Redis (Caching) |
 | **Infrastructure** | Docker Compose (local) + Kubernetes (MicroK8s/AKS) + Terraform |
 | **CI/CD** | GitHub Actions (Click to Deploy) |
@@ -30,7 +30,7 @@ Welcome to **Giglet** — a fully cloud-native, microservices-based marketplace 
 ## 📥 Getting Started
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/giglet.git
+git clone https://github.com/dcarlini/giglet.git
 cd giglet
 ```
 
