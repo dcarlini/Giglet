@@ -26,6 +26,9 @@ jobs:
       run: |
         pip install diagrams
 
+    - name: Install GraphWiz
+      uses: tlylt/install-graphviz@v1
+
     - name: Generate Diagram
       run: |
         python3 docs/generate_architecture_diagram.py
