@@ -1,15 +1,14 @@
 from diagrams import Diagram, Cluster
-from diagrams.azure.compute import KubernetesServices
-from diagrams.azure.devops import ContainerRegistry
+from diagrams.azure.compute import KubernetesServices, ContainerRegistries
 from diagrams.azure.network import VirtualNetworks, Subnets
-from diagrams.azure.general import ResourceGroups
+from diagrams.azure.general import Resourcegroups
 from diagrams.onprem.monitoring import Grafana, Prometheus
-from diagrams.onprem.analytics import OpenTelemetry
+from diagrams.generic.blank import Blank
 
 with Diagram("Giglet Architecture", show=False, filename="giglet-architecture", outformat="png"):
     with Cluster("Azure Cloud"):
-        rg = ResourceGroups("giglet-rg")
-        acr = ContainerRegistry("giglet-acr")
+        rg = Resourcegroups("giglet-rg")
+        acr = ContainerRegistries("giglet-acr")
 
         with Cluster("Virtual Network"):
             vnet = VirtualNetworks("giglet-vnet")
@@ -23,7 +22,7 @@ with Diagram("Giglet Architecture", show=False, filename="giglet-architecture", 
 
             vnet >> subnet >> [job_service, user_service, payment_service, notification_service]
 
-        otel = OpenTelemetry("OpenTelemetry Collector")
+        otel = Blank("OpenTelemetry Collector")
         prom = Prometheus("Prometheus")
         grafana = Grafana("Grafana")
 
